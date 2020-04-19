@@ -14,7 +14,7 @@ more=(\
 '	  Supports, Ubuntu 18.04 ' \
 '	  ' \
 )
-# 15 ------------------------- Default Function ---------------------------------
+# 17 ------------------------- Default Function ---------------------------------
 moreFunc () {
 j=0
 for i in "${more[@]}"
@@ -29,16 +29,16 @@ do
 done
 }
 #
-# 30 ------------------------- Copyright Info -----------------------------------
+# 32 ------------------------- Copyright Info -----------------------------------
 # Script by Dhanush <dhanushsandy91@gmail.com>
 # Copyright (C) 2020 RadarLabs.Inc <www.radarlabs.com>
 #
-# 34 -------------------------------- More --------------------------------------
+# 36 -------------------------------- More --------------------------------------
 # It Uses the -/sys/class/thermal/thermal_zone0/temp- to obtain the Temp of the
 # SOC then calculates the Temp value using bc. If there is any change in the
 # value, then in will update on the screen.
 #
-# 39 ----------------------------- File logs ------------------------------------
+# 41 ----------------------------- File logs ------------------------------------
 echo "--------------------------------------------------------------------------"
 echo "File	: $file"
 echo "Type	: $type"
@@ -54,7 +54,7 @@ echo "--------------------------------------------------------------------------
 echo $(date -u) "Script Started..."
 #################################################################################
 
-# 54 ---------------------------- Script Functions ------------------------------
+# 57 ---------------------------- Script Functions ------------------------------
 currentTime () {
 	date "+%Y/%m/%d %H:%M:%S"
 }
@@ -96,7 +96,7 @@ osCheck () {
 	fi
 	return 1
 }
-# 96 ------------------------------ Main Script ---------------------------------
+# 99 ------------------------------ Main Script ---------------------------------
 saved=0
 echo "Status: Running; hit [CTRL+C] to stop!"
 cmd=`osCheck`
