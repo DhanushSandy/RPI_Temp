@@ -4,13 +4,15 @@
 # 4 -------------------------- Default Variables ---------------------------------
 file='Temp.sh'		# File Name
 type='Shell Script'	# File Type
-version='V1.0'		# Current Version
-date='2020-04-19'	# Last Modified
+date='2020-04-19'	# Created On
+version='V1.1'		# Current Version
+update='2020-04-20'	# Last Modified
 # Discription
 about='A Simple Temperature monitor Script for Raspberry pi 1/2/3/4'
 more=(\
 'Requires bc to be loaded. If not then use $apt-get install bc' \
-'Supports, Ubuntu 18.04 ' \
+'	  Supports, Ubuntu 18.04 ' \
+'	  ' \
 )
 # 15 ------------------------- Default Function ---------------------------------
 moreFunc () {
@@ -40,7 +42,8 @@ done
 echo "--------------------------------------------------------------------------"
 echo "File	: $file"
 echo "Type	: $type"
-echo "Version	: $version $date"
+echo "Created	: $date"
+echo "Version	: $version $update"
 echo " "
 echo "About	: $about"
      moreFunc
@@ -67,7 +70,9 @@ barGraph () {
 			str+=" "
 		fi
 	done
-	echo "$str"
+        cal=$(bc -l <<< "$barCount/5 + 0.5")
+        color=$(bc <<<"6 - $cal/1")
+	echo "$(tput setaf $color)$str$(tput sgr0)"
 	return 1
 }
 osCheck () {
@@ -91,7 +96,7 @@ osCheck () {
 	fi
 	return 1
 }
-# 94 ------------------------------ Main Script ---------------------------------
+# 96 ------------------------------ Main Script ---------------------------------
 saved=0
 echo "Status: Running; hit [CTRL+C] to stop!"
 cmd=`osCheck`
