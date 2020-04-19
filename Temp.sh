@@ -1,7 +1,10 @@
 #!/bin/bash
 ##################################################################################
+# 3 --------------------------- Copyright Info -----------------------------------
+# Template by Dhanush <dhanushsandy91@gmail.com>
+# Copyright (C) 2020 RadarLabs.Inc <www.radarlabs.com>
 #
-# 4 -------------------------- Default Variables ---------------------------------
+# 7 -------------------------- Default Variables ---------------------------------
 file='Temp.sh'		# File Name
 type='Shell Script'	# File Type
 date='2020-04-19'	# Created On
@@ -14,7 +17,7 @@ more=(\
 '	  Supports, Ubuntu 18.04 ' \
 '	  ' \
 )
-# 17 ------------------------- Default Function ---------------------------------
+# 20 -------------------------- Default Function ---------------------------------
 moreFunc () {
 j=0
 for i in "${more[@]}"
@@ -28,18 +31,13 @@ do
         fi
 done
 }
-#
-# 32 ------------------------- Copyright Info -----------------------------------
-# Script by Dhanush <dhanushsandy91@gmail.com>
-# Copyright (C) 2020 RadarLabs.Inc <www.radarlabs.com>
-#
-# 36 -------------------------------- More --------------------------------------
+# 34 --------------------------------- More --------------------------------------
 # It Uses the -/sys/class/thermal/thermal_zone0/temp- to obtain the Temp of the
 # SOC then calculates the Temp value using bc. If there is any change in the
 # value, then in will update on the screen.
 #
-# 41 ----------------------------- File logs ------------------------------------
-echo "--------------------------------------------------------------------------"
+# 39 ------------------------------ File logs ------------------------------------
+echo "---------------------------------------------------------------------------"
 echo "File	: $file"
 echo "Type	: $type"
 echo "Created	: $date"
@@ -50,11 +48,11 @@ echo "About	: $about"
 echo "Author	: Dhanush [dhanushsandy91@gmail.com]"
 echo "Website	: www.radarlabs.com"
 echo "Copyright (C) 2020 RadarLabs.Inc"
-echo "--------------------------------------------------------------------------"
+echo "---------------------------------------------------------------------------"
 echo $(date -u) "Script Started..."
-#################################################################################
+##################################################################################
 
-# 57 ---------------------------- Script Functions ------------------------------
+# 55 ----------------------------- Script Functions ------------------------------
 currentTime () {
 	date "+%Y/%m/%d %H:%M:%S"
 }
@@ -96,7 +94,8 @@ osCheck () {
 	fi
 	return 1
 }
-# 99 ------------------------------ Main Script ---------------------------------
+# 97 ------------------------------- Main Script ---------------------------------
+
 saved=0
 echo "Status: Running; hit [CTRL+C] to stop!"
 cmd=`osCheck`
@@ -112,4 +111,5 @@ do
 			sleep 1
 		fi
 done
-#----------------------------------- End Script --------------------------------
+
+#------------------------------------- End Script --------------------------------
