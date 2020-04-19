@@ -16,6 +16,12 @@ It supports Ubuntu and Debian.
 
 ~$./RPI_Temp/Temp.sh
 
+# Dependents
+
+- Basic Calculator
+
+~$sudo apt-get install bc
+
 # Priview
 
 <img src="./priview.PNG" width=800>
