@@ -8,7 +8,7 @@
 file='Temp.sh'		# File Name
 type='Shell Script'	# File Type
 date='2020-04-19'	# Created On
-version='V1.1'		# Current Version
+version='V1.1.1'	# Current Version
 update='2020-04-20'	# Last Modified
 # Discription
 about='A Simple Temperature monitor Script for Raspberry pi 1/2/3/4'
@@ -22,7 +22,7 @@ moreFunc () {
 j=0
 for i in "${more[@]}"
 do
-       	if [ $j == 0 ]
+       	if [[ $j == 0 && $i != "       " ]]
         then
                 echo "More	: $i"
                 j=1
@@ -49,10 +49,11 @@ echo "Author	: Dhanush [dhanushsandy91@gmail.com]"
 echo "Website	: www.radarlabs.com"
 echo "Copyright (C) 2020 RadarLabs.Inc"
 echo "---------------------------------------------------------------------------"
-echo $(date -u) "Script Started..."
+echo $(date -u) "| Status: $(tput setaf 2)Running$(tput sgr0) " \
+"| hit [CTRL+C] to stop!"
 ##################################################################################
 
-# 55 ----------------------------- Script Functions ------------------------------
+# 56 ----------------------------- Script Functions ------------------------------
 currentTime () {
 	date "+%Y/%m/%d %H:%M:%S"
 }
@@ -94,10 +95,10 @@ osCheck () {
 	fi
 	return 1
 }
-# 97 ------------------------------- Main Script ---------------------------------
+# 98 ------------------------------- Main Script ---------------------------------
 
 saved=0
-echo "Status: Running; hit [CTRL+C] to stop!"
+#echo 'Status: Running; hit [CTRL+C] to stop!"
 cmd=`osCheck`
 #echo '$cmd"
 while :
@@ -107,7 +108,7 @@ do
 	barStr=`barGraph $temp`
         	if [ $temp != $saved ]
 		then
-			echo -ne "[$file] $(currentTime) [CPU: $barStr $temp'C]"\\r
+			echo -ne "[SYS_TEMP] $(currentTime) [CPU: $barStr $temp'C]"\\r
 			sleep 1
 		fi
 done
